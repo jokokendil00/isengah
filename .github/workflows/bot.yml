@@ -9,5 +9,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 'latest'
+      - name: Installing
+        run: npm i
       - name: Run Node Js
         run: node index.js
