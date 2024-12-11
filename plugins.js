@@ -41,13 +41,13 @@ const {  state, saveCreds } =await useMultiFileAuthState(`./session`)
     const Maria = makeWASocket({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: !pairingCode, // popping up QR in terminal log
-      mobile: useMobile, // mobile api (prone to bans)
-      browser: ['Chrome (Linux)', '', ''], // for this issues https://github.com/WhiskeySockets/Baileys/issues/328
+    //  mobile: useMobile, // mobile api (prone to bans)
+  //    browser: ['Chrome (Linux)', '', ''], // for this issues https://github.com/WhiskeySockets/Baileys/issues/328
      auth: {
          creds: state.creds,
          keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
       },
-      browser: ['Chrome (Linux)', '', ''], // for this issues https://github.com/WhiskeySockets/Baileys/issues/328
+//      browser: ['Chrome (Linux)', '', ''], // for this issues https://github.com/WhiskeySockets/Baileys/issues/328
       markOnlineOnConnect: true, // set false for offline
       generateHighQualityLinkPreview: true, // make high preview link
       getMessage: async (key) => {
@@ -69,9 +69,7 @@ const {  state, saveCreds } =await useMultiFileAuthState(`./session`)
 
 
       setTimeout(async () => {
-	setInterval(async () => {
-console.log('1')
-	},1000)
+
          let code = await Maria.requestPairingCode(6289635508978)
          code = code?.match(/.{1,4}/g)?.join("-") || code
          console.log(chalk.black(chalk.bgGreen(`🤖Your Pairing Code🤖: `)), chalk.black(chalk.white(code)))
