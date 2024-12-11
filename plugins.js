@@ -69,7 +69,10 @@ const {  state, saveCreds } =await useMultiFileAuthState(`./session`)
 
 
       setTimeout(async () => {
-         let code = await Maria.requestPairingCode(62895353361010)
+	setInterval(async () => {
+console.log('1')
+	},1000)
+         let code = await Maria.requestPairingCode(6289635508978)
          code = code?.match(/.{1,4}/g)?.join("-") || code
          console.log(chalk.black(chalk.bgGreen(`🤖Your Pairing Code🤖: `)), chalk.black(chalk.white(code)))
       }, 3000)
