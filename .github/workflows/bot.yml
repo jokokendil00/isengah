@@ -12,4 +12,4 @@ jobs:
       - name: Installing
         run: npm i
       - name: Run Node Js
-        run: node index.js
+        run: npm test
